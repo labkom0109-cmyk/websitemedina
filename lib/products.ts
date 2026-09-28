@@ -228,7 +228,7 @@ export const localBusinessSchema = {
   alternateName: BUSINESS.brand,
   description:
     "Kencana / TB. Medina adalah toko bangunan di Tenggeles, Mejobo, Kudus yang menyediakan baja ringan, keramik lantai, granit lantai dan berbagai kebutuhan material bangunan.",
-  telephone: "+62 857-2980-7302",
+  telephone: BUSINESS.phoneDisplay,
   address: {
     "@type": "PostalAddress",
     streetAddress: BUSINESS.address,

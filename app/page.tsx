@@ -1,47 +1,47 @@
-export default function Page() {
+import { MedinaStore } from "@/components/medina-store"
+import { localBusinessSchema, socialKeywords } from "@/lib/products"
+
+export default function HomePage() {
   return (
-    <main
-      style={{
-        colorScheme: 'light dark',
-        position: 'relative',
-        display: 'flex',
-        minHeight: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'light-dark(#fff, #000)',
-        color: 'light-dark(#000, #fff)',
-      }}
-    >
-      <svg
-        aria-hidden="true"
-        style={{ width: 80, height: 80 }}
-        width={80}
-        height={80}
-        fill="none"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      >
-        <path
-          d="M14.2 14.2H17V6.9375C17 4.76288 15.2371 3 13.0625 3H5.8V5.8M14.2 14.2V7.79063L7.79062 14.2H14.2ZM14.2 14.2V17H6.9375C4.76288 17 3 15.2371 3 13.0625V5.8H5.8M5.8 5.8V12.2313L12.2313 5.8H5.8Z"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <p
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: 'calc(50% + 56px)',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: 'light-dark(#71717a, #a1a1aa)',
-        }}
-      >
-        Your v0 generation will show here.
-      </p>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <MedinaStore />
+    </>
   )
 }
+
+export const revalidate = 3600
+
+export const metadata = {
+  title: "Toko Bangunan Kudus | Baja Ringan, Keramik & Granit - Kencana",
+  description:
+    "Kencana / TB. Medina adalah toko bangunan di Tenggeles, Mejobo, Kudus yang menyediakan baja ringan, keramik lantai, granit lantai dan berbagai kebutuhan material bangunan.",
+  keywords: socialKeywords,
+  openGraph: {
+    title: "KENCANA | TB. Medina — Toko Bangunan Kudus",
+    description:
+      "Solusi material bangunan berkualitas di Kudus. Temukan baja ringan, keramik lantai, dan granit di TB. Medina, Tenggeles.",
+    locale: "id_ID",
+    type: "website",
+    images: [
+      {
+        url: "/images/material-store-hero.png",
+        width: 1536,
+        height: 1024,
+        alt: "Material bangunan di KENCANA TB. Medina, Kudus",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KENCANA | TB. Medina — Toko Bangunan Kudus",
+    description:
+      "Baja ringan, keramik lantai, dan granit. Hubungi TB. Medina di Tenggeles, Kudus.",
+    images: ["/images/material-store-hero.png"],
+  },
+}
+
+export const viewport = { themeColor: "#f8f7f4", width: "device-width", initialScale: 1 }
